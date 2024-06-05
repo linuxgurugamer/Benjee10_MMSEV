@@ -8,6 +8,8 @@ using UnityEngine;
 using PlanetsideExplorationTechnologies.DifficultySettings;
 using PlanetsideExplorationTechnologies.Extensions;
 
+using ModularClimateWeatherSystems;
+
 namespace PlanetsideExplorationTechnologies.Modules
 {
     public class ModulePETTurbine : ModulePETAnimation
@@ -265,8 +267,13 @@ namespace PlanetsideExplorationTechnologies.Modules
 
         private void UpdateWind()
         {
-            windHeading = !part.WaterContact ? PlanetsideExplorationTechnologies.Instance.WindHeading : 0.0f;
-            windSpeedMult = !part.WaterContact ? PlanetsideExplorationTechnologies.Instance.WindSpeedMultiplier : 0.0f;
+            Vector3 windVec = Vector3.zero;
+            windVec = MCWS_API.GetRawWindVec();
+
+            bool istherewind = windVec.x != 0.0 || windVec.z != 0.0;
+
+            windSpeedMult = !part.WaterContact ? windVec.magnitude : 0.0f;
+            windHeading = (float)(istherewind ? UtilMath.WrapAround((Math.Atan2(windVec.z, windVec.x) * UtilMath.Rad2Deg) + 180.0, 0.0, 360.0) : 0.0);
 
             windDirection = Quaternion.AngleAxis(windHeading, vessel.upAxis) * vessel.north;
         }
