@@ -33,11 +33,10 @@
   <ItemGroup>
     <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\1.11 DLLs\Assembly-CSharp.dll</HintPath>
+      <HintPath>D:\steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\1.11 DLLs\Assembly-CSharp-firstpass.dll</HintPath>
+    <Reference Include="ModularClimateWeatherSystems">
+      <HintPath>..\..\ModularClimatWeatherSystems\ModularClimateWeatherSystems\bin\Debug\ModularClimateWeatherSystems.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,38 +47,40 @@
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\1.11 DLLs\UnityEngine.dll</HintPath>
+      <HintPath>D:\steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\1.11 DLLs\Managed\UnityEngine.AnimationModule.dll</HintPath>
+      <HintPath>D:\steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\1.11 DLLs\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>D:\steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\1.11 DLLs\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath>D:\steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\1.11 DLLs\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <HintPath>D:\steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\1.11 DLLs\Managed\UnityEngine.UI.dll</HintPath>
+      <HintPath>D:\steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\1.11 DLLs\Managed\UnityEngine.UIModule.dll</HintPath>
+      <HintPath>D:\steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>D:\steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.VideoModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DifficultySettings\DifficultyGeneral.cs" />
     <Compile Include="DifficultySettings\DifficultyGeneralWind.cs" />
     <Compile Include="DifficultySettings\DifficultyWindProbability.cs" />
-    <Compile Include="Integration\KerbalWindWrapper.cs" />
     <Compile Include="Extensions\Vector3Renderer.cs" />
     <Compile Include="Extensions\Utilities.cs" />
     <Compile Include="YieldInstructions\TimeWarpYieldInstruction.cs" />
@@ -89,9 +90,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PlanetsideExplorationTechnologies.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Integration\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /Y "$(TargetPath)" "G:\KSP\1.11 Dev\GameData\Benjee10_MMSEV\Plugins\"
+    <PostBuildEvent>xcopy /Y "$(TargetPath)" "D:\TestKSP\Kerbal Space Program\GameData\Benjee10_MMSEV\Plugins\"
 </PostBuildEvent>
   </PropertyGroup>
 </Project>

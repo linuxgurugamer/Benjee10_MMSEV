@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Source/obj
+/Source/bin
+/Source/.vs/PlanetsideExplorationTechnologies/v17
