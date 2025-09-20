@@ -317,8 +317,13 @@ namespace PlanetsideExplorationTechnologies.Modules
                     {
                         if (localWindSpeed < minWindSpeed)
                         {
-                            statusDisplay = Localizer.Format("#LOC_B10_MMSEV_Status_TooLittleWind");
+<<<<<<< HEAD
+                            statusDisplay = $"Too little wind to generate power!";
                             efficiencyCurve = efficiencyAngle = turbineSpeed = 0.0f;
+=======
+                            statusDisplay = Localizer.Format("#LOC_B10_MMSEV_Status_TooLittleWind");
+                            efficiencyCurve = efficiencyAngle = 0.0f;
+>>>>>>> cee62d10b7a80f31f227ec249086377fb89cd8ef
                             break;
                         }
 
@@ -338,12 +343,15 @@ namespace PlanetsideExplorationTechnologies.Modules
                     }
                     else
                     {
+<<<<<<< HEAD
+=======
                         if (localWindSpeed < minWindSpeed)
                         {
                             statusDisplay = Localizer.Format("#LOC_B10_MMSEV_Status_TooLittleWind");
                             efficiencyCurve = efficiencyAngle = 0.0f;
                             break;
                         }
+>>>>>>> cee62d10b7a80f31f227ec249086377fb89cd8ef
 
                         turbineSpeed = Mathf.Lerp(turbineSpeed, 0, TimeWarp.fixedDeltaTime * spoolUpTime);
                         efficiencyCurve = turbineSpeed / (float)vessel.atmDensity * atmEfficiencyCurve.Evaluate((float)vessel.atmDensity);
@@ -376,10 +384,15 @@ namespace PlanetsideExplorationTechnologies.Modules
             windDirectionDisplay = Utilities.GetCardinalDirection(windHeading);
             windSpeedDisplay = $"{(float)vessel.atmDensity * windSpeedMult:P1}";
 
+<<<<<<< HEAD
+            turbineEfficiencyDisplay = $"{(deployState == DeployState.EXTENDED ? efficiencyCurve * efficiencyAngle : 0):P1}";
+            flowRateDisplay = $"{(deployState == DeployState.EXTENDED ? (efficiencyCurve * efficiencyAngle) * chargeRate : 0):N2}";
+=======
 
             turbineEfficiencyDisplay = $"{(deployState == DeployState.EXTENDED ? efficiencyCurve * trueEfficiencyAngle : 0):P1}";
             flowRateDisplay = (deployState == DeployState.EXTENDED ? $"{(efficiencyCurve * trueEfficiencyAngle * chargeRate):N2} " : "0 ");
 //            flowRateDisplay = $"{(deployState == DeployState.EXTENDED ? (efficiencyCurve * trueEfficiencyAngle) * chargeRate : 0):N2}";
+>>>>>>> cee62d10b7a80f31f227ec249086377fb89cd8ef
 
             if (showWindDirection)
             {
